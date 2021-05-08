@@ -1,8 +1,24 @@
- <?php require_once 'header.php' ; ?> 
 
-  <!-- Main Sidebar Container -->
-  
-<?php require_once 'sidebar.php' ; ?> 
+<?php
+require_once 'header.php' ;
+require_once 'sidebar.php' ;
+require_once 'islem/baglanti.php' ;
+
+$ayar=$baglanti->prepare("SELECT * FROM ayarlar where id=?");
+$ayar->execute(array(1));
+$ayarcek=$ayar->fetch(PDO::FETCH_ASSOC);
+
+
+
+
+
+
+
+
+
+
+
+?> 
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -22,15 +38,15 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Site Başlığı</label>
-                    <input name="baslik" type="email" class="form-control"  placeholder="Lütfen sitenizin başlığını giriniz...">
+                    <input value="<?php echo $ayarcek['baslik'] ?>" name="baslik" type="text" class="form-control"  placeholder="Lütfen sitenizin başlığını giriniz...">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Açıklama</label>
-                    <input name="aciklama" type="password" class="form-control" placeholder="Lütfen sitenizin açıklamasını giriniz...">
+                    <input value="<?php echo $ayarcek['aciklama'] ?>"name="aciklama" type="text" class="form-control" placeholder="Lütfen sitenizin açıklamasını giriniz...">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Anahtar Kelime</label>
-                    <input name="anahtarkelime" type="password" class="form-control"  placeholder="Lütfen sitenizin anahtar kelimesini giriniz...">
+                    <input value="<?php echo $ayarcek['anahtarkelime'] ?>"name="anahtarkelime" type="text" class="form-control"  placeholder="Lütfen sitenizin anahtar kelimesini giriniz...">
                   </div>
                   
                   
