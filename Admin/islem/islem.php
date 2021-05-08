@@ -170,6 +170,7 @@ if (isset($_POST['logokaydet'])) {
 	if ($update) {
 
 	$resimsil=$_POST['eskilogo'];
+
 	unlink("../resimler/logo/$resimsil");
 	
 	header("Location:../ayarlar.php?yuklenme=basarili");
@@ -186,6 +187,135 @@ if (isset($_POST['logokaydet'])) {
 
 
 }
+
+if (isset($_POST['hakkimizdakaydet'])) {
+
+if ($_FILES['resim'] ["size"]>0) {
+
+	$uploads_dir='../resimler/hakkimizda';
+	@$tmp_name=$_FILES['resim'] ["tmp_name"];
+	@$name=$_FILES['resim'] ["name"];
+
+	$sayi=rand(1,100000000);
+	$sayi2=rand(1,100000000);
+	$sayi3=rand(10000,200000000);
+
+	$sayilar=$sayi.$sayi2.$sayi3;
+	$resimyolu=$sayilar.$name;
+
+
+	@move_uploaded_file($tmp_name, "$uploads_dir/$sayilar$name");
+
+	$duzenle=$baglanti->prepare("UPDATE hakkimizda SET 
+
+
+
+		hakkimizda_baslik=:hakkimizda_baslik,
+		hakkimizda_detay=:hakkimizda_detay,
+		hakkimizda_misyon=:hakkimizda_misyon,
+		hakkimizda_vizyon=:hakkimizda_vizyon,
+		hakkimizda_resim=:hakkimizda_resim
+
+
+	WHERE hakkimizda_id =1
+
+		");
+
+	$update=$duzenle->execute(array(
+
+
+
+		'hakkimizda_baslik'=>$_POST['baslik'],
+		
+		'hakkimizda_detay'=>$_POST['detay'],
+
+		'hakkimizda_misyon'=>$_POST['misyon'],
+
+		'hakkimizda_vizyon'=>$_POST['vizyon'],
+
+		'hakkimizda_resim'=>$resimyolu
+
+
+	));
+
+	if ($update) {
+
+	$resimsil=$_POST['eskiresim'];
+
+	unlink("../resimler/hakkimizda/$resimsil");
+	
+	header("Location:../hakkimizda.php?yuklenme=basarili");
+
+	}
+	else
+	{
+	header("Location:../hakkimizda.php?yuklenme=basarisiz");
+	}
+	
+
+
+
+
+
+
+
+}else{
+	$duzenle=$baglanti->prepare("UPDATE hakkimizda SET 
+
+
+
+		hakkimizda_baslik=:hakkimizda_baslik,
+		hakkimizda_detay=:hakkimizda_detay,
+		hakkimizda_misyon=:hakkimizda_misyon,
+		hakkimizda_vizyon=:hakkimizda_vizyon
+		
+
+
+	WHERE hakkimizda_id =1
+
+		");
+
+	$update=$duzenle->execute(array(
+
+
+
+		'hakkimizda_baslik'=>$_POST['baslik'],
+		
+		'hakkimizda_detay'=>$_POST['detay'],
+
+		'hakkimizda_misyon'=>$_POST['misyon'],
+
+		'hakkimizda_vizyon'=>$_POST['vizyon']
+
+		
+
+
+	));
+
+	if ($update) {
+	
+	header("Location:../hakkimizda.php?yuklenme=basarili");
+
+	}
+	else
+	{
+	header("Location:../hakkimizda.php?yuklenme=basarisiz");
+	}
+}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
 
 
 
