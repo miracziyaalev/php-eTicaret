@@ -30,12 +30,13 @@ if (isset($_POST['ayarkaydet'])) {
 	));
 
 	if ($update) {
-	echo "basarili";
-	# code...
+	
+	header("Location:../ayarlar.php?yuklenme=basarili");
+
 	}
 	else
 	{
-	echo "basarisiz";
+	header("Location:../ayarlar.php?yuklenme=basarisiz");
 	}
 
 

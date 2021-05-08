@@ -30,8 +30,19 @@ $ayarcek=$ayar->fetch(PDO::FETCH_ASSOC);
         
         <div class="card card-primary col-md-12">
               <div class="card-header">
-                <h3 class="card-title">Genel Ayarlar</h3>
-              </div>
+                <h3 class="card-title">Genel Ayarlar </h3>  </div><?php  
+
+
+                if ($_GET['yuklenme'] == 'basarili'){ ?>
+                  <h6 style="color: green"> (Yükleme İşlemi Başarılı) </h6>
+                  <?php
+                }elseif ($_GET['yuklenme'] == 'basarisiz') {?>
+                  <h6 style="color: red"> (Yükleme İşlemi Başarısız) </h6>
+                  <?php
+                }
+
+                ?> 
+             
               <!-- /.card-header -->
               <!-- form start -->
               <form action="islem/islem.php" method="POST" >
