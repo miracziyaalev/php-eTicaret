@@ -1,3 +1,21 @@
+<?php
+
+require_once 'islem/baglanti.php' ;
+
+$ayar=$baglanti->prepare("SELECT * FROM ayarlar where id=?");
+$ayar->execute(array(1));
+$ayarcek=$ayar->fetch(PDO::FETCH_ASSOC);
+
+
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>

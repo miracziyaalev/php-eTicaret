@@ -12,6 +12,7 @@ require_once 'sidebar.php' ;
 
 
 
+
 ?> 
 
   <!-- Content Wrapper. Contains page content -->
@@ -24,7 +25,7 @@ require_once 'sidebar.php' ;
         
         <div class="card card-primary col-md-12">
               <div class="card-header">
-                <h3 class="card-title">Genel Ayarlar </h3>  </div><?php  
+                <h3 class="card-title">Sosyal Medya Ayarları </h3>  </div><?php  
 
 
                 if ($_GET['yuklenme'] == 'basarili'){ ?>
@@ -42,16 +43,20 @@ require_once 'sidebar.php' ;
               <form action="islem/islem.php" method="POST" >
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Site Başlığı</label>
-                    <input value="<?php echo $ayarcek['baslik'] ?>" name="baslik" type="text" class="form-control"  placeholder="Lütfen sitenizin başlığını giriniz...">
+                    <label for="exampleInputEmail1">Facebook</label>
+                    <input value="<?php echo $ayarcek['facebook'] ?>"name="facebook"type="text"class="form-control"placeholder="Lütfen Facebook adresinizi giriniz...">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Açıklama</label>
-                    <input value="<?php echo $ayarcek['aciklama'] ?>"name="aciklama" type="text" class="form-control" placeholder="Lütfen sitenizin açıklamasını giriniz...">
+                    <label for="exampleInputPassword1">İnstagram</label>
+                    <input value="<?php echo $ayarcek['instagram'] ?>"name="instagram"type="text"class="form-control"placeholder="Lütfen İnstagram adresinizi giriniz...">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Anahtar Kelime</label>
-                    <input value="<?php echo $ayarcek['anahtarkelime'] ?>"name="anahtarkelime" type="text" class="form-control"  placeholder="Lütfen sitenizin anahtar kelimesini giriniz...">
+                    <label for="exampleInputPassword1">Twitter</label>
+                    <input value="<?php echo $ayarcek['twitter'] ?>"name="twitter"type="text"class="form-control"placeholder="Lütfen Twitter adresinizi giriniz...">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Youtube</label>
+                    <input value="<?php echo $ayarcek['youtube'] ?>"name="youtube"type="text"class="form-control"placeholder="Lütfen Youtube adresinizi giriniz...">
                   </div>
                   
                   
@@ -59,7 +64,7 @@ require_once 'sidebar.php' ;
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button name="ayarkaydet" type="submit" class="btn btn-primary">Gönder</button>
+                  <button name="sosyalmedyakaydet" type="submit" class="btn btn-primary">Gönder</button>
                 </div>
               </form>
             </div>
