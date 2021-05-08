@@ -12,7 +12,7 @@
        
         <div class="row">
         
-        
+        <h3> merhaba git</h3>
          
           <!-- right col -->
         </div>
