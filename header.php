@@ -277,7 +277,7 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
                                                     </li>
                                                 </ul>
                                             </li>                                       
-                                            <li><a href="about-us.html">HAKKIMIZDA</a></li>
+                                            <li><a href="hakkimizda.php">HAKKIMIZDA</a></li>
                                             <li><a href="contact.html">Kargo BİLGİLERİ</a></li>
                                             <li><a href="shop-left-sidebar.html">İLETİŞİM</a></li>
                                             

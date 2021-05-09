@@ -11,6 +11,18 @@
       <div class="container-fluid">
        
         <div class="row">
+          <?php  
+
+
+                if (@$_GET['yuklenme'] == 'basarili'){ ?>
+                  <h6 style="color: green"> (Yükleme İşlemi Başarılı) </h6>
+                  <?php
+                }elseif (@$_GET['yuklenme'] == 'basarisiz') {?>
+                  <h6 style="color: red"> (Yükleme İşlemi Başarısız) </h6>
+                  <?php
+                }
+
+                ?> 
           <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -39,6 +51,7 @@
                       <th>Kategori Durum</th>
                       <th>Düzenle</th>
                       <th>Sil</th>
+                      <th>Ürünlere Git</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -66,6 +79,7 @@
                       
                        <td><a href="kategori-duzenle?id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-info"> Düzenle </button></a></td>
                       <td><a href="islem/islem.php?kategorisil&id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-danger"> Sil </button></a></td>
+                      <td><button type="submit" class="btn btn-success">Git</button></td>
                     </tr>
                     
                    <?php } ?>

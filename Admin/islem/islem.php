@@ -452,10 +452,105 @@ if (isset($_GET['kullanicisil'])) {
 	
 }
 
+if (isset($_POST['kategorikaydet'])) {
+	
+	$kategorikaydet=$baglanti->prepare("INSERT into kategori SET 
 
 
 
+		kategori_adi=:kategori_adi,
+		kategori_sira=:kategori_sira,
+		kategori_durum=:kategori_durum
+		
 
+		");
+
+	$insert=$kategorikaydet->execute(array(
+
+
+
+		'kategori_adi'=>$_POST['katadi'],
+		
+		'kategori_sira'=>$_POST['sira'],
+
+		'kategori_durum'=>$_POST['kategoridurum']
+
+		
+		
+
+
+	));
+
+	if ($insert) {
+	
+	header("Location:../kategori?yuklenme=basarili");
+
+	}
+	else
+	{
+	header("Location:../kategori?yuklenme=basarisiz");
+	}
+}
+
+if (isset($_POST['kategoriduzenle'])) {
+	$kat=$_POST['katid'];
+
+	$duzenle=$baglanti->prepare("UPDATE kategori SET 
+
+
+		kategori_adi=:kategori_adi,
+		kategori_sira=:kategori_sira,
+		kategori_durum=:kategori_durum
+
+	WHERE kategori_id =$kat
+		");
+
+	$update=$duzenle->execute(array(
+
+
+
+		'kategori_adi'=>$_POST['katadi'],
+		
+		'kategori_sira'=>$_POST['sira'],
+
+		'kategori_durum'=>$_POST['kategoridurum']
+
+
+	));
+
+	if ($update) {
+	
+	header("Location:../kategori.php?yuklenme=basarili");
+
+	}
+	else
+	{
+	header("Location:../kategori.php?yuklenme=basarisiz");
+	}
+}
+
+
+if (isset($_GET['kategorisil'])) {
+
+
+
+	$kategorisil=$baglanti->prepare("DELETE from kategori where kategori_id=:kategori_id");
+
+	$kategorisil->execute(array(
+		'kategori_id'=>$_GET['id']
+
+	));
+
+	
+
+	if ($kategorisil) {
+		Header('Location:../kategori?yuklenme=basarili');
+	}else
+	{
+		Header('Location:../kategori?yuklenme=basarisiz');
+	}
+	
+}
 
 
 
