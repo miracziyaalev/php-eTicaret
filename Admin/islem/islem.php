@@ -341,6 +341,52 @@ Header("Location:../login?durum=hata");
 
 }
 
+if (isset($_POST['uyelerkaydet'])) {
+
+	$kadi=htmlspecialchars($_POST['kadi']); //guvenli hale getiriyor
+	$sifre=htmlspecialchars($_POST['sifre']);
+	$adsoyad=htmlspecialchars($_POST['adsoyad']);
+	$sifreguclu=md5($sifre); 
+	
+	$kullanicikaydet=$baglanti->prepare("INSERT into kullanici SET 
+
+
+
+		kullanici_adi=:kullanici_adi,
+		kullanici_sifre=:kullanici_sifre,
+		kullanici_adsoyad=:kullanici_adsoyad,
+		kullanici_yetki=:kullanici_yetki
+		
+
+		");
+
+	$insert=$kullanicikaydet->execute(array(
+
+
+
+		'kullanici_adi'=>$kadi,
+		
+		'kullanici_sifre'=>$sifreguclu,
+
+		'kullanici_adsoyad'=>$adsoyad,
+
+		'kullanici_yetki'=>2
+
+		
+
+
+	));
+
+	if ($insert) {
+	
+	header("Location:../uyeler?yuklenme=basarili");
+
+	}
+	else
+	{
+	header("Location:../uyeler?yuklenme=basarisiz");
+	}
+}
 
 
 
