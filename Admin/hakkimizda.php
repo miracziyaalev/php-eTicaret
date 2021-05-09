@@ -27,10 +27,10 @@ require_once 'sidebar.php' ;
                 <h3 class="card-title">Genel Ayarlar </h3>  </div><?php  
 
 
-                if ($_GET['yuklenme'] == 'basarili'){ ?>
+                if (@$_GET['yuklenme'] == 'basarili'){ ?>
                   <h6 style="color: green"> (Yükleme İşlemi Başarılı) </h6>
                   <?php
-                }elseif ($_GET['yuklenme'] == 'basarisiz') {?>
+                }elseif (@$_GET['yuklenme'] == 'basarisiz') {?>
                   <h6 style="color: red"> (Yükleme İşlemi Başarısız) </h6>
                   <?php
                 }
@@ -55,10 +55,7 @@ require_once 'sidebar.php' ;
                     <label for="exampleInputEmail1">Hakkımızda Başlık</label>
                     <input value="<?php echo $hakkimizdacek['hakkimizda_baslik'] ?>" name="baslik" type="text" class="form-control"  placeholder="Lütfen başlığı giriniz...">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Hakkımızda Detay</label>
-                    <input value="<?php echo $hakkimizdacek['hakkimizda_detay'] ?>"name="detay" type="text" class="form-control" placeholder="Lütfen detay açıklamasını giriniz...">
-                  </div>
+                  
                   <div class="form-group">
                     <label for="exampleInputPassword1">Misyon</label>
                     <input value="<?php echo $hakkimizdacek['hakkimizda_misyon'] ?>"name="misyon" type="text" class="form-control"  placeholder="Lütfen misyonunuzu giriniz...">
@@ -67,8 +64,9 @@ require_once 'sidebar.php' ;
                     <label for="exampleInputPassword1">Vizyon</label>
                     <input value="<?php echo $hakkimizdacek['hakkimizda_vizyon'] ?>"name="vizyon" type="text" class="form-control"  placeholder="Lütfen vizyonunuzu giriniz...">
                   </div>
-                  
-                  
+                  <label>Hakkımızda Detay</label>
+                  <textarea name="detay" class="ckeditor" id="editor1"> <?php echo $hakkimizdacek['hakkimizda_detay'] ?> </textarea>
+
                 </div>
                 <!-- /.card-body -->
 

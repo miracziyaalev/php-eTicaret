@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="index" class="nav-link">
               <i class="fas fa-home"></i>
               <p>
                 Anasayfa
@@ -34,7 +34,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="kategori" class="nav-link">
               <i class="fas fa-bars"></i>
               <p>
                 Kategoriler
@@ -44,7 +44,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="hakkimizda" class="nav-link">
               <i class="fas fa-address-card"></i>
               <p>
                 Hakkımızda
@@ -54,7 +54,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="slider" class="nav-link">
               <i class="fas fa-images"></i>
               <p>
                 Slider
@@ -64,7 +64,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="uyeler" class="nav-link">
               <i class="fas fa-users"></i>
               <p>
                 Üyeler
@@ -74,7 +74,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="yorumlar" class="nav-link">
               <i class="fas fa-comments"></i>
               <p>
                 Yorumlar
@@ -93,25 +93,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="ayarlar" class="nav-link active">
                   <i class="fab fa-chrome"></i>
                   <p>Site Ayarları</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="iletisim" class="nav-link">
                   <i class="fas fa-id-card"></i>
                   <p>İletişim Ayarları</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="sosyalmedya" class="nav-link">
                  <i class="fab fa-instagram"></i>
                   <p>Sosyal Medya Ayarları</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="kullanici" class="nav-link">
                   <i class="fas fa-users"></i>
                   <p>Kullanıcı Bilgileri</p>
                 </a>

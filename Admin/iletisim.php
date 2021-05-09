@@ -28,10 +28,10 @@ require_once 'sidebar.php' ;
                 <h3 class="card-title">İletişim Ayarları </h3>  </div><?php  
 
 
-                if ($_GET['yuklenme'] == 'basarili'){ ?>
+                if (@$_GET['yuklenme'] == 'basarili'){ ?>
                   <h6 style="color: green"> (Yükleme İşlemi Başarılı) </h6>
                   <?php
-                }elseif ($_GET['yuklenme'] == 'basarisiz') {?>
+                }elseif (@$_GET['yuklenme'] == 'basarisiz') {?>
                   <h6 style="color: red"> (Yükleme İşlemi Başarısız) </h6>
                   <?php
                 }
