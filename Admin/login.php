@@ -26,7 +26,21 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Lütfen giriş bilgilerini giriniz.</p>
+      
+
+        <?php
+
+        if (@$_GET['durum'] =='hata') { ?>
+          <p style="color: red" class="login-box-msg"> Kullanıcı adı veya şifre hatalı.
+        <?php }else
+        {?>
+         <p style="color: gray" class="login-box-msg"> Lütfen giriş bilgilerini giriniz.
+       <?php }
+
+        ?>
+        
+
+      </p>
 
       <form action="islem/islem.php" method="post">
         <div class="input-group mb-3">

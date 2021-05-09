@@ -329,15 +329,12 @@ $kullanicisor->execute(array(
 $var=$kullanicisor->rowCount();	// boyle bir kullanici varsa 1 yazdiriyor. 
 
 if ($var >0) {
-	echo "kullanici var";
+$_SESSION['girisbelgesi']=$kadi;
+Header("Location:../index?durum=hosgeldin");
 }else
 {
-	echo "kullanici bulunamadi";
+Header("Location:../login?durum=hata");
 }
-
-
-
-
 
 
 
