@@ -347,6 +347,45 @@ if (isset($_POST['uyelerkaydet'])) {
 	$sifre=htmlspecialchars($_POST['sifre']);
 	$adsoyad=htmlspecialchars($_POST['adsoyad']);
 	$sifreguclu=md5($sifre); 
+
+	$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi");
+
+	$kullanicisor->execute(array(
+	'kullanici_adi'=>$kadi
+	
+
+
+
+));
+
+
+	$var=$kullanicisor->rowCount();	// boyle bir kullanici varsa 1 yazdiriyor. 
+
+	if ($var>0) {
+		Header("Location:../uyeler-ekle?yuklenme=kullanicivar");
+		# code...
+	}else{
+		echo "kullanici yok";
+	
+	
+
+
+
+	$uploads_dir='../resimler/kullanici';
+	@$tmp_name=$_FILES['resim'] ["tmp_name"];
+	@$name=$_FILES['resim'] ["name"];
+
+	$sayi=rand(1,100000000);
+	$sayi2=rand(1,100000000);
+	$sayi3=rand(10000,200000000);
+
+	$sayilar=$sayi.$sayi2.$sayi3;
+	$resimyolu=$sayilar.$name;
+
+
+	@move_uploaded_file($tmp_name, "$uploads_dir/$sayilar$name");
+
+	
 	
 	$kullanicikaydet=$baglanti->prepare("INSERT into kullanici SET 
 
@@ -355,7 +394,8 @@ if (isset($_POST['uyelerkaydet'])) {
 		kullanici_adi=:kullanici_adi,
 		kullanici_sifre=:kullanici_sifre,
 		kullanici_adsoyad=:kullanici_adsoyad,
-		kullanici_yetki=:kullanici_yetki
+		kullanici_yetki=:kullanici_yetki,
+		kullanici_resim=:kullanici_resim
 		
 
 		");
@@ -370,7 +410,8 @@ if (isset($_POST['uyelerkaydet'])) {
 
 		'kullanici_adsoyad'=>$adsoyad,
 
-		'kullanici_yetki'=>2
+		'kullanici_yetki'=>2,
+		'kullanici_resim'=>$resimyolu
 
 		
 
@@ -386,6 +427,7 @@ if (isset($_POST['uyelerkaydet'])) {
 	{
 	header("Location:../uyeler?yuklenme=basarisiz");
 	}
+}
 }
 
 

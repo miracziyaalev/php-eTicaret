@@ -28,15 +28,18 @@ require_once 'sidebar.php' ;
 
 
                 if (@$_GET['yuklenme'] == 'basarili'){ ?>
-                  <h6 style="color: green"> (Yükleme İşlemi Başarılı) </h6>
+                  <h6 style="color: green"> (Yükleme İşlemi Başarılı.) </h6>
                   <?php
                 }elseif (@$_GET['yuklenme'] == 'basarisiz') {?>
-                  <h6 style="color: red"> (Yükleme İşlemi Başarısız) </h6>
+                  <h6 style="color: red"> (Yükleme İşlemi Başarısız.) </h6>
                   <?php
-                }
+                }elseif (@$_GET['yuklenme'] == 'kullancivar') {?>
+                  <h6 style="color: red">(Bu Kullanıcı Kayıtlı.)</h6>
+                  <?php
 
-                ?> 
+                 } ?>
              
+
               <!-- /.card-header -->
               <!-- form start -->
               <form action="islem/islem.php" method="POST" enctype="multipart/form-data" >

@@ -116,6 +116,12 @@
                   <p>Kullanıcı Bilgileri</p>
                 </a>
               </li>
+               <li class="nav-item">
+                <a href="cikis" class="nav-link">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <p>Çıkış Yap</p>
+                </a>
+              </li>
             </ul>
           </li>
           

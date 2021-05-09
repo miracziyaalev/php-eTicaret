@@ -32,6 +32,9 @@
 
         if (@$_GET['durum'] =='hata') { ?>
           <p style="color: red" class="login-box-msg"> Kullanıcı adı veya şifre hatalı.
+        <?php }
+        elseif (@$_GET['durum'] =='gulegule') { ?>
+          <p style="color: green" class="login-box-msg"> Görüşmek Üzere...
         <?php }else
         {?>
          <p style="color: gray" class="login-box-msg"> Lütfen giriş bilgilerini giriniz.

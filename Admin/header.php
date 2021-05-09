@@ -1,6 +1,30 @@
 <?php
+session_start();
+
 
 require_once 'islem/baglanti.php' ;
+
+$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi");
+
+  $kullanicisor->execute(array(
+  'kullanici_adi'=>$_SESSION['girisbelgesi']
+  
+
+
+
+));
+
+
+  $var=$kullanicisor->rowCount(); // boyle bir kullanici varsa 1 yazdiriyor. 
+
+  if ($var == 0) {
+    header("Location:login?durum=izinsiz");
+    # code...
+  }
+
+
+
+
 
 $ayar=$baglanti->prepare("SELECT * FROM ayarlar where id=?");
 $ayar->execute(array(1));
@@ -24,7 +48,7 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Oyuncum</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
