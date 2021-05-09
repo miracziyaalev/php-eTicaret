@@ -9,6 +9,10 @@ $ayar=$baglanti->prepare("SELECT * FROM ayarlar where id=?");
 $ayar->execute(array(1));
 $ayarcek=$ayar->fetch(PDO::FETCH_ASSOC);
 
+$hakkimizda=$baglanti->prepare("SELECT * FROM hakkimizda where hakkimizda_id=?");
+$hakkimizda->execute(array(1));
+$hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
+
 
 
 
