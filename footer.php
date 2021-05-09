@@ -26,7 +26,7 @@
                                         </div>
                                         <div class="shipping-text">
                                             <h2>Güvenli Ödeme</h2>
-                                            <p>Pay with the world's most popular and secure payment methods.</p>
+                                            <p>Dünyanın en güvenilir yöntemiyle ödeme yapın.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -38,8 +38,8 @@
                                             <img src="images/shipping-icon/3.png" alt="Shipping Icon">
                                         </div>
                                         <div class="shipping-text">
-                                            <h2>Shop with Confidence</h2>
-                                            <p>Our Buyer Protection covers your purchasefrom click to delivery.</p>
+                                            <h2>Güvenle Alışveriş</h2>
+                                            <p>Ürünlerimiz güvencelidir.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -51,8 +51,8 @@
                                             <img src="images/shipping-icon/4.png" alt="Shipping Icon">
                                         </div>
                                         <div class="shipping-text">
-                                            <h2>24/7 Help Center</h2>
-                                            <p>Have a question? Call a Specialist or chat online.</p>
+                                            <h2>7/24 Çözüm Merkezi</h2>
+                                            <p>Sorununuz mu var? 7/24 Bir tık uzağınızdayız. </p>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                     <div class="footer-logo">
                                         <img src="images/menu/logo/1.jpg" alt="Footer Logo">
                                         <p class="info">
-                                            We are a team of designers and developers that create high quality HTML Template & Woocommerce, Shopify Theme.
+                                            Muhammed Eren ALEV. Karabük Üniversitesi Bilgisayar Programcılığı Öğrencisi.
                                         </p>
                                     </div>
                                     <ul class="des">
