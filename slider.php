@@ -7,43 +7,34 @@
                             <div class="slider-area">
                                 <div class="slider-active owl-carousel">
                                     <!-- Begin Single Slide Area -->
-                                    <div class="single-slide align-center-left  animation-style-01 bg-1">
+
+ <?php 
+                    $slider=$baglanti->prepare("SELECT * FROM slider where slider_banner=:slider_banner and slider_durum=:slider_durum order by slider_sira ASC ");
+                    $slider->execute(array(
+
+                      'slider_banner'=>1,
+                      'slider_durum'=>1 
+
+                    ));
+                    while ($slidercek=$slider->fetch(PDO::FETCH_ASSOC)) {?>
+
+
+                                    <div style="background-image: url(Admin/resimler/slider/<?php echo $slidercek['slider_resim'] ?>)
+                                    !important; "class="single-slide align-center-left  animation-style-01 bg-3">
                                         <div class="slider-progress"></div>
                                         <div class="slider-content">
-                                            <h5>Sale Offer <span>-20% Off</span> This Week</h5>
-                                            <h2>Chamcham Galaxy S9 | S9+</h2>
-                                            <h3>Starting at <span>$1209.00</span></h3>
+                                            <h5><?php echo$slidercek['slider_aciklama'] ?></h5>
+                                            <h2> <?php echo$slidercek['slider_baslik'] ?></h2>
+                                            
                                             <div class="default-btn slide-btn">
-                                                <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+                                                <a class="links" href="<?php echo$slidercek['slider_link'] ?>"><?php echo$slidercek['slider_button'] ?></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Single Slide Area End Here -->
-                                    <!-- Begin Single Slide Area -->
-                                    <div class="single-slide align-center-left animation-style-02 bg-2">
-                                        <div class="slider-progress"></div>
-                                        <div class="slider-content">
-                                            <h5>Sale Offer <span>Black Friday</span> This Week</h5>
-                                            <h2>Work Desk Surface Studio 2018</h2>
-                                            <h3>Starting at <span>$824.00</span></h3>
-                                            <div class="default-btn slide-btn">
-                                                <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single Slide Area End Here -->
-                                    <!-- Begin Single Slide Area -->
-                                    <div class="single-slide align-center-left animation-style-01 bg-3">
-                                        <div class="slider-progress"></div>
-                                        <div class="slider-content">
-                                            <h5>Sale Offer <span>-10% Off</span> This Week</h5>
-                                            <h2>Phantom 4 Pro+ Obsidian</h2>
-                                            <h3>Starting at <span>$1849.00</span></h3>
-                                            <div class="default-btn slide-btn">
-                                                <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
+<?php } ?>                                
+
+
                                     <!-- Single Slide Area End Here -->
                                 </div>
                             </div>
@@ -51,16 +42,24 @@
                         <!-- Slider Area End Here -->
                         <!-- Begin Li Banner Area -->
                         <div class="col-lg-4 col-md-4 text-center pt-xs-30">
-                            <div class="li-banner">
-                                <a href="#">
-                                    <img src="images/banner/1_1.jpg" alt="">
+<?php 
+                    $slider=$baglanti->prepare("SELECT * FROM slider where slider_banner=:slider_banner and slider_durum=:slider_durum order by slider_sira ASC ");
+                    $slider->execute(array(
+
+                      'slider_banner'=>0,
+                      'slider_durum'=>1 
+
+                    ));
+                    while ($slidercek=$slider->fetch(PDO::FETCH_ASSOC)) {?>
+
+
+                            <div style="margin-top: 10px" class="li-banner">
+                                <a href="<?php echo$slidercek['slider_link'] ?>">
+                                    <img src="Admin/resimler/slider/<?php echo$slidercek['slider_resim'] ?>" alt="">
                                 </a>
                             </div>
-                            <div class="li-banner mt-15 mt-sm-30 mt-xs-30">
-                                <a href="#">
-                                    <img src="images/banner/1_2.jpg" alt="">
-                                </a>
-                            </div>
+                            
+                    <?php } ?>          
                         </div>
                         <!-- Li Banner Area End Here -->
                     </div>
