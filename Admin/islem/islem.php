@@ -430,6 +430,27 @@ if (isset($_POST['uyelerkaydet'])) {
 }
 }
 
+if (isset($_GET['kullanicisil'])) {
+
+
+
+	$kullanicisil=$baglanti->prepare("DELETE from kullanici where kullanici_id=:kullanici_id");
+
+	$kullanicisil->execute(array(
+		'kullanici_id'=>$_GET['id']
+
+	));
+
+	
+
+	if ($kullanicisil) {
+		Header('Location:../uyeler?durum=basarili');
+	}else
+	{
+		Header('Location:../uyeler?durum=basarisiz');
+	}
+	
+}
 
 
 
