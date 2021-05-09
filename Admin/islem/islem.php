@@ -1,4 +1,6 @@
- <?php require_once 'baglanti.php';
+ <?php
+ session_start();
+ require_once 'baglanti.php';
 
 if (isset($_POST['ayarkaydet'])) {
 
@@ -301,6 +303,36 @@ if ($_FILES['resim'] ["size"]>0) {
 	{
 	header("Location:../hakkimizda.php?yuklenme=basarisiz");
 	}
+}
+
+
+
+}
+
+if (isset($_POST['girisyap'])) {
+	
+$kadi=htmlspecialchars($_POST['kadi']); //guvenli hale getiriyor
+$sifre=htmlspecialchars($_POST['sifre']);
+$sifreguclu=md5($sifre); //md5 formati. sifreyi karmasiklastiriyor
+
+$kullanicisor=$baglanti->prepare("SELECT * from kullanici WHERE kullanici_adi=:kullanici_adi and kullanici_sifre=:kullanici_sifre");
+
+$kullanicisor->execute(array(
+'kullanici_adi'=>$kadi,
+'kullanici_sifre'=>$sifreguclu
+
+
+
+));
+
+
+$var=$kullanicisor->rowCount();	// boyle bir kullanici varsa 1 yazdiriyor. 
+
+if ($var >0) {
+	echo "kullanici var";
+}else
+{
+	echo "kullanici bulunamadi";
 }
 
 
