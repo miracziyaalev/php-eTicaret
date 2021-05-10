@@ -47,13 +47,13 @@
 
 
 
-                                        <?php if ($_GET['durum']=="kullanicivar") { ?>
+                                        <?php if (@$_GET['durum']=="kullanicivar") { ?>
                                             <i style="color: red"> Bu kullanıcı sistemde kayıtlı. </i>
-                                      <?php  } elseif ($_GET['durum']=="sifrehata") { ?>
+                                      <?php  } elseif (@$_GET['durum']=="sifrehata") { ?>
                                             <i style="color: red"> Şifreleriniz aynı değil. </i>
-                                    <?php   }elseif ($_GET['durum']=="sifreeksik") { ?>
+                                    <?php   }elseif (@$_GET['durum']=="sifreeksik") { ?>
                                             <i style="color: red"> Lütfen minimum 8 karakter olacak şekilde şifrenizi girin. </i>
-                                 <?php   }elseif ($_GET['durum']=="basarisiz") { ?>
+                                 <?php   }elseif (@$_GET['durum']=="basarisiz") { ?>
                                             <i style="color: red"> İşlem başarısız. </i>
                                 <?php }  ?> 
 

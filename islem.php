@@ -12,7 +12,7 @@ $kullanicisor=$baglanti->prepare("SELECT * from kullanici WHERE kullanici_adi=:k
 
 $kullanicisor->execute(array(
 'kullanici_adi'=>$kadi,
-'kullanici_sifre'=>$sifreguclu,
+'kullanici_sifre'=>$sifre,
 'kullanici_yetki'=>1
 
 
@@ -87,12 +87,12 @@ $kullanicikaydet=$baglanti->prepare("INSERT into kullanici SET
 
 	if ($insert) {
 	
-	header("Location:kullanici?durum=basarili");
+	Header("Location:index?durum=hosgeldin");
 
 	}
 	else
 	{
-	header("Location:diris?durum=basarisiz");
+	header("Location:giris?durum=basarisiz");
 	}
 
 

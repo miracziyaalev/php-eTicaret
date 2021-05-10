@@ -26,7 +26,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Kategori Tablosu</h3>
+                <h3 class="card-title">Slider Tablosu</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -39,47 +39,68 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <a href="kategori-ekle"><button style="float: right" type="submit" class="btn btn-success">Yeni Kategori Ekle</button></a>
+              <a href="slider-ekle"><button style="float: right" type="submit" class="btn btn-success">Yeni Slider Ekle</button></a>
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                  
                   <thead>
                     <tr>
-                      <th>Kategori Numara</th>
-                      <th>Kategori Adı</th>
-                      <th>Katıldığı Sırası</th>
-                      <th>Kategori Durum</th>
+                      <th>Slider Fotoğraf</th>
+                      <th>Slider Başlık</th>
+                      <th>Slider Açıklama</th>
+                      <th>Slider Button İsmi</th>
+                      <th>Slider Durum</th>
+                      <th>Slider Sıra</th>
+                      <th>Slider Banner</th>
+                      
                       <th>Düzenle</th>
                       <th>Sil</th>
-                      <th>Ürünlere Git</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
                     <?php 
-                    $kategori=$baglanti->prepare("SELECT * FROM kategori order by kategori_id ASC ");
-                    $kategori->execute();
-                    while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) {?>
+                    $slider=$baglanti->prepare("SELECT * FROM slider order by slider_id ASC ");
+                    $slider->execute();
+                    while ($slidercek=$slider->fetch(PDO::FETCH_ASSOC)) {?>
                       
                     
                     
                     <tr>
-                      <td><?php echo $kategoricek['kategori_id'] ?></td>
-                      <td><?php echo $kategoricek['kategori_adi'] ?></td>
-                      <td><?php echo $kategoricek['kategori_sira'] ?></td>
+                      <td><img style="width: 300px" src="resimler/slider/<?php echo $slidercek['slider_resim']  ?>"></td>
+                      <td><?php echo $slidercek['slider_baslik'] ?></td>
+                      <td><?php echo $slidercek['slider_aciklama'] ?></td>
+                      <td><?php echo $slidercek['slider_button'] ?></td>
                       <td><span class="tag tag-success"><?php 
 
-                      if ($kategoricek['kategori_durum'] == "1") {
+                      if ($slidercek['slider_durum'] == "1") {
                         echo "Aktif";                    
-                         }elseif ($kategoricek['kategori_durum'] == "0") {
+                         }elseif ($slidercek['slider_durum'] == "0") {
                            echo "Pasif";
                          }
 
 
                        ?></span></td>
+                      <td><?php echo $slidercek['slider_sira'] ?></td>
+                      <td><span class="tag tag-success"><?php 
+
+                      if ($slidercek['slider_banner'] == "1") {
+                        echo "slider";                    
+                         }elseif ($slidercek['slider_banner'] == "0") {
+                           echo "banner";
+                         }
+
+
+                       ?></span></td>
                       
-                       <td><a href="kategori-duzenle?id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-info"> Düzenle </button></a></td>
-                      <td><a href="islem/islem.php?kategorisil&id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-danger"> Sil </button></a></td>
-                      <td> <a href="urunler?katid= <?php echo $kategoricek['kategori_id'] ?>"> <button type="submit" class="btn btn-success">Git</button></a></td>
+                      
+                       <td><a href="slider-duzenle?id=<?php echo $slidercek['slider_id'] ?>"><button type="submit" class="btn btn-info"> Düzenle </button></a></td>
+                       <form action="islem/islem.php" method="post"> 
+                        <input type="hidden" name="id" value="<?php echo$slidercek['slider_id']  ?>">
+                      <input type="hidden" name="resim" value="<?php echo$slidercek['slider_resim']  ?>">
+                     
+                      <td><button name="slidersil" type="submit" class="btn btn-danger"> Sil </button></td></form>
+
                     </tr>
                     
                    <?php } ?>
